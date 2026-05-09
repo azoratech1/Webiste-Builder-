@@ -155,12 +155,17 @@ async (e) => {
 
   try {
 
-    // DIRECTLY SEND FILE
-    // mediaApi handles FormData
+    const formData =
+      new FormData();
+
+    formData.append(
+      'file',
+      file
+    );
 
     const res =
       await mediaApi.upload(
-        file
+        formData
       );
 
     const imageUrl =

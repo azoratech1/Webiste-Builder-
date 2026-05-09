@@ -121,7 +121,6 @@ useState(0);
 
   useEffect(() => {
     fetchHomepageData();
-    console.log("hero data is"+JSON.stringify(homeData.hero));
   }, []);
 useEffect(() => {
 

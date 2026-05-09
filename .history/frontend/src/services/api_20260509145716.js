@@ -498,7 +498,7 @@ export const mediaApi = {
   // Upload image (stores as BLOB)
   upload: (file, onProgress) => {
     const formData = new FormData();
-    formData.append('file', file)
+    formData.append('image', file);
     return api.post('/media/upload', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
       onUploadProgress: onProgress

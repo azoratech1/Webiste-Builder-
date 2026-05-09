@@ -109,7 +109,7 @@ const DynamicHomePage = () => {
       phone: "+1 (555) 123-4567",
       email: "info@abctechnologies.com",
       hours: "Mon-Fri: 9AM - 6PM"
-    },
+    }
     slides: []
   });
   const [loading, setLoading] = useState(true);
@@ -121,7 +121,6 @@ useState(0);
 
   useEffect(() => {
     fetchHomepageData();
-    console.log("hero data is"+JSON.stringify(homeData.hero));
   }, []);
 useEffect(() => {
 

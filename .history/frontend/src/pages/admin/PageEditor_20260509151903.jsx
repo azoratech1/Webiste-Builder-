@@ -155,12 +155,17 @@ async (e) => {
 
   try {
 
-    // DIRECTLY SEND FILE
-    // mediaApi handles FormData
+    const formData =
+      new FormData();
+
+    formData.append(
+      'file',
+      file
+    );
 
     const res =
       await mediaApi.upload(
-        file
+        formData
       );
 
     const imageUrl =
@@ -270,99 +275,6 @@ async (e) => {
                 className="w-full border rounded-lg p-2"
               />
             </div>
-            <div className="pt-4 border-t">
-
-  <div className="flex items-center justify-between mb-3">
-
-    <label className="block text-sm font-medium">
-      Hero Slider Images
-    </label>
-
-    <label className="bg-blue-600 text-white px-3 py-2 rounded-lg text-sm cursor-pointer hover:bg-blue-700">
-
-      Upload Image
-
-      <input
-        type="file"
-        accept="image/*"
-        className="hidden"
-        onChange={uploadHeroImage}
-      />
-
-    </label>
-
-  </div>
-
-  {
-  content.slides?.length > 0 ? (
-
-    <div className="grid grid-cols-2 gap-4">
-
-      {content.slides.map(
-        (slide, idx) => (
-
-          <div
-            key={idx}
-            className="border rounded-lg overflow-hidden bg-gray-50"
-          >
-
-            <img
-              src={slide.image}
-              alt=""
-              className="w-full h-32 object-cover"
-            />
-
-            <div className="p-2">
-
-              <input
-                type="text"
-                value={slide.title || ''}
-                placeholder="Slide Title"
-                onChange={(e) =>
-                  updateLocalNestedContent(
-                    'slides',
-                    idx,
-                    'title',
-                    e.target.value
-                  )
-                }
-                className="w-full border rounded p-2 text-sm"
-              />
-
-              <button
-                onClick={() =>
-                  removeLocalArrayItem(
-                    'slides',
-                    idx
-                  )
-                }
-                className="mt-2 text-red-600 text-sm"
-              >
-
-                Remove
-
-              </button>
-
-            </div>
-
-          </div>
-        )
-      )}
-
-    </div>
-
-  ) : (
-
-    <div className="text-sm text-gray-500 border rounded-lg p-6 text-center">
-
-      No slider images added yet
-
-    </div>
-
-  )
-  }
-
-</div>
           </div>
         );
       

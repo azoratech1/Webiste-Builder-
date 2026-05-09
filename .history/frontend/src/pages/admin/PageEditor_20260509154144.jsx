@@ -145,60 +145,65 @@ const PageEditor = () => {
     if (!editedSection) return;
     setEditedSection({ ...editedSection, is_active });
   };
-const uploadHeroImage =
-async (e) => {
+// const uploadHeroImage =
+// async (e) => {
 
-  const file =
-    e.target.files[0];
+//   const file =
+//     e.target.files[0];
 
-  if (!file) return;
+//   if (!file) return;
 
-  try {
+//   try {
 
-    // DIRECTLY SEND FILE
-    // mediaApi handles FormData
+//     const formData =
+//       new FormData();
 
-    const res =
-      await mediaApi.upload(
-        file
-      );
+//     formData.append(
+//       'file',
+//       file
+//     );
 
-    const imageUrl =
-      res.data.data.url;
+//     const res =
+//       await mediaApi.upload(
+//         formData
+//       );
 
-    const currentSlides =
-      editedSection.content
-        ?.slides || [];
+//     const imageUrl =
+//       res.data.data.url;
 
-    setEditedSection({
+//     const currentSlides =
+//       editedSection.content
+//         ?.slides || [];
 
-      ...editedSection,
+//     setEditedSection({
 
-      content: {
+//       ...editedSection,
 
-        ...editedSection.content,
+//       content: {
 
-        slides: [
+//         ...editedSection.content,
 
-          ...currentSlides,
+//         slides: [
 
-          {
-            image: imageUrl,
-            title: 'New Slide'
-          }
-        ]
-      }
-    });
+//           ...currentSlides,
 
-  } catch (error) {
+//           {
+//             image: imageUrl,
+//             title: 'New Slide'
+//           }
+//         ]
+//       }
+//     });
 
-    console.error(error);
+//   } catch (error) {
 
-    alert(
-      'Image upload failed'
-    );
-  }
-};
+//     console.error(error);
+
+//     alert(
+//       'Image upload failed'
+//     );
+//   }
+// };
   const getDefaultContent = (type) => {
     const defaults = {
       hero: { 

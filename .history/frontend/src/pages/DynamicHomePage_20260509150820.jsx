@@ -109,8 +109,7 @@ const DynamicHomePage = () => {
       phone: "+1 (555) 123-4567",
       email: "info@abctechnologies.com",
       hours: "Mon-Fri: 9AM - 6PM"
-    },
-    slides: []
+    }
   });
   const [loading, setLoading] = useState(true);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -121,7 +120,6 @@ useState(0);
 
   useEffect(() => {
     fetchHomepageData();
-    console.log("hero data is"+JSON.stringify(homeData.hero));
   }, []);
 useEffect(() => {
 
@@ -351,39 +349,6 @@ homeData.hero?.slides?.length > 0 && (
                 ))}
               </div>
             )}
-            {
-homeData.hero?.slides?.length > 1 && (
-
-<div className="flex justify-center gap-2 mt-8">
-
-  {homeData.hero.slides.map(
-    (_, idx) => (
-
-      <button
-        key={idx}
-
-        onClick={() =>
-          setActiveSlide(idx)
-        }
-
-        className={`
-          h-3 rounded-full
-          transition-all duration-300
-
-          ${
-            idx === activeSlide
-              ? 'bg-white w-8'
-              : 'bg-white/50 w-3'
-          }
-        `}
-      />
-    )
-  )}
-
-</div>
-
-)
-}
           </motion.div>
         </div>
       </section>

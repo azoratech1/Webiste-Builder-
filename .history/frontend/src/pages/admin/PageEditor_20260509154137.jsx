@@ -155,50 +155,10 @@ async (e) => {
 
   try {
 
-    // DIRECTLY SEND FILE
-    // mediaApi handles FormData
-
     const res =
       await mediaApi.upload(
         file
       );
-
-    const imageUrl =
-      res.data.data.url;
-
-    const currentSlides =
-      editedSection.content
-        ?.slides || [];
-
-    setEditedSection({
-
-      ...editedSection,
-
-      content: {
-
-        ...editedSection.content,
-
-        slides: [
-
-          ...currentSlides,
-
-          {
-            image: imageUrl,
-            title: 'New Slide'
-          }
-        ]
-      }
-    });
-
-  } catch (error) {
-
-    console.error(error);
-
-    alert(
-      'Image upload failed'
-    );
-  }
-};
   const getDefaultContent = (type) => {
     const defaults = {
       hero: { 
